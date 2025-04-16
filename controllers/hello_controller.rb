@@ -2,7 +2,7 @@ require_relative 'base_controller'
 
 class HelloController < BaseController
   def hello
-    Appsignal.send_error(RuntimeError.new("foo"))
+    Appsignal.set_action("HelloController#hello")
     sleep 3
     { message: "Hello, World!" }
   end

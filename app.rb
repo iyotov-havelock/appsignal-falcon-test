@@ -1,3 +1,4 @@
+require_relative 'config/application'
 require 'roda'
 require_relative 'controllers/hello_controller'
 

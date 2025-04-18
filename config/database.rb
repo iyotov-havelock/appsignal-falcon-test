@@ -1,5 +1,13 @@
 require 'sequel'
 
+Sequel::Database.extension :error_sql
+
+Sequel::Database.register_extension(
+  :appsignal_integration,
+  Appsignal::Hooks::SequelLogConnectionExtension
+)
+Sequel::Database.extension(:appsignal_integration)
+
 # Set up database connection
 DB = Sequel.connect('sqlite://db/development.sqlite3')
 
